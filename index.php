@@ -8,8 +8,13 @@ if (isset($_GET['lang'])) {
     $_SESSION['lang'] = $_GET['lang'];  // Set bahasa berdasarkan pilihan
 }
 
+// Jika session 'lang' belum diset, default ke bahasa Indonesia
+if (!isset($_SESSION['lang'])) {
+    $_SESSION['lang'] = 'bahasa_indonesia';  // Set bahasa default
+}
+
 // Memuat file bahasa sesuai dengan session
-if (!isset($_SESSION['lang']) || $_SESSION['lang'] == 'bahasa_indonesia') {
+if ($_SESSION['lang'] == 'bahasa_indonesia') {
     include 'bahasa_indo.php';  // Bahasa default
 } else {
     include 'bahasa_inggris.php';
@@ -34,7 +39,12 @@ if (!isset($_SESSION['lang']) || $_SESSION['lang'] == 'bahasa_indonesia') {
             <li><a href="index.php"><?php echo htmlspecialchars($lang_menu_home); ?></a></li> 
             <li><a href="login.php"><?php echo htmlspecialchars($lang_menu_profile); ?></a></li> 
             <li><a href="login.php"><?php echo htmlspecialchars($lang_menu_contact); ?></a></li> 
-            <li><a href="addBerita.php"><?php echo htmlspecialchars($lang_menu_add); ?></a></li> 
+            <li><a href="addBerita.php"><?php echo htmlspecialchars($lang_menu_add); ?></a></li>
+            
+            <!-- Tampilkan tautan logout jika pengguna sudah login -->
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
+                <li><a href="logout.php">Logout</a></li>
+            <?php endif; ?>
         </ul> 
     </nav> 
     

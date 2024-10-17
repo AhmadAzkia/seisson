@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Cek apakah user sudah login atau belum
+if (!isset($_SESSION['username'])) {
+    header('Location: login.php'); // Jika belum login, redirect ke login.php
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +17,7 @@
 </head>
 <body>
     <center>
-        <form action="simpan_berita.php" method="post" enctype="multipart/form-data">
+        <form action="saveBerita.php" method="post" enctype="multipart/form-data">
             <h1>FORM TAMBAH BERITA</h1>
             <h2>UNIKOM NEWS</h2>
             <hr>

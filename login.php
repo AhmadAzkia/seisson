@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $username;
 
         // Redirect ke halaman utama atau dashboard
-        header("Location: index.php");
+        header("Location: addBerita.php");
         exit();
     } else {
         // Jika username atau password salah, tampilkan pesan error
