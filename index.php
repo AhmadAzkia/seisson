@@ -80,7 +80,7 @@ if (!isset($_SESSION['lang']) || $_SESSION['lang'] == 'bahasa_indonesia') {
     // Loop untuk menampilkan data
     while ($row = mysqli_fetch_assoc($hasil)) {
         $id_berita = htmlspecialchars($row['id_berita']);
-        $waktu_berita = htmlspecialchars($row['waktu_berita']);
+        $waktu_berita = htmlspecialchars($row['waktu_simpan']);
         $judul_id = htmlspecialchars($row['judul_id']);
         $judul_en = htmlspecialchars($row['judul_en']);
         $isi_id = htmlspecialchars($row['isi_id']);
